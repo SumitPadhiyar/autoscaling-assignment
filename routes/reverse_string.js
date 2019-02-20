@@ -4,9 +4,10 @@ var debug = require('debug')('api-reverse_string')
 
 router.get('/reverse_string', function(req, res, next) {
 	debug(req.query)
-	setTimeout(function(){
-		res.json({reverse_string: reverseString(req.query.str)})	
-	}, 1000);
+	for (var i = 100000; i>=0; --i) {
+		debug(i)
+	}
+	res.json({reverse_string: reverseString(req.query.str)})	
 });
 
 function reverseString(str){
